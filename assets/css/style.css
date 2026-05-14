@@ -528,6 +528,7 @@ html,body{width:100%;min-height:100%;overflow-x:hidden;font-family:'Nunito',sans
   .nav-search-results{width:240px;right:-40px}
 
   /* HERO — stack layout */
+  #hero{height:90vh}
   .side-cup{display:none}
   #bgWord{font-size:clamp(70px,22vw,110px)}
   #productStage{top:28%;transform:translateX(-50%);left:50%}
