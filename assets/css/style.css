@@ -570,6 +570,12 @@ html,body{width:100%;min-height:100%;overflow-x:hidden;font-family:'Nunito',sans
   .kids-about-visual{height:auto;min-height:unset}
   .ka-main-img{width:100%;max-width:100%;height:auto}
 
+  /* BENEFITS — fix image overflow */
+  .kids-benefits{overflow-x:hidden}
+  .kb-img-side{height:auto;min-height:unset}
+  .kb-main-img{width:100%;max-width:100%;height:auto}
+  .kb-text h2{font-size:clamp(1.8rem,7vw,2.4rem);word-break:break-word;overflow-wrap:break-word}
+
   /* PRODUCTS */
   .kids-product-grid{grid-template-columns:1fr}
   .k-stat-grid{grid-template-columns:1fr 1fr}
