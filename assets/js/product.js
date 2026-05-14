@@ -1,40 +1,40 @@
 /* ══ PRODUCT CATALOG ══ */
 const productCatalog = {
-  almonds: {
-    id:'almonds', name:'Premium Almonds', category:'Dry Fruit', price:299,
-    badge:'Fresh 🔥', badgeColor:'#1565C0', bg:'#fff5ee',
-    image:'assets/images/red.png',
-    description:'California Grade A almonds — hand-selected for superior taste, crunch, and nutritional depth. Rich in vitamin E, magnesium, and heart-healthy monounsaturated fats. Perfect raw, roasted, or blended into almond butter for everyday nourishment.',
-    ingredients:['100% Natural Almonds','No Preservatives','No Artificial Colours','Non-GMO Certified','Cold-Processed'],
-    nutrition:{Calories:'579 kcal',Protein:'21g',Fat:'50g',Carbs:'22g',Fibre:'12g'},
-    weights:['250g','500g','1kg'],
+  milletvanilla: {
+    id:'milletvanilla', name:'Millet Vanilla', category:'Millet Snack', price:299,
+    badge:'Best Seller 🔥', badgeColor:'#4e7a1e', bg:'#edf5e1',
+    image:'assets/images/green.png',
+    description:'Creamy vanilla meets wholesome millet in every delightful bite. A smooth, guilt-free treat packed with fibre and natural goodness — loved by kids and parents alike.',
+    ingredients:['Whole Millet','Natural Vanilla','Jaggery','Rice Flour','No Artificial Colours','Non-GMO'],
+    nutrition:{Calories:'400 kcal',Protein:'7g',Fat:'12g',Carbs:'64g',Fibre:'6g'},
+    weights:['100g','200g','500g'],
   },
-  cashews: {
-    id:'cashews', name:'Premium Cashews', category:'Dry Nut', price:299,
-    badge:'Premium ✨', badgeColor:'#0d2b6b', bg:'#fdf8ee',
+  milletchoco: {
+    id:'milletchoco', name:'Millet Choco', category:'Millet Snack', price:299,
+    badge:'Fan Fav ✨', badgeColor:'#5c3e18', bg:'#f5ede6',
     image:'assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png',
-    description:'Buttery W320 grade cashews from the finest certified farms. Naturally creamy with a rich, satisfying bite. Loaded with copper, zinc, and healthy fats for complete everyday nutrition. Eat raw, roast lightly, or blend into cashew cream.',
-    ingredients:['100% Natural Cashews','Sun-Dried Processing','No Salt Added','No Preservatives','Ethically Sourced'],
-    nutrition:{Calories:'553 kcal',Protein:'18g',Fat:'44g',Carbs:'30g',Fibre:'3g'},
-    weights:['250g','500g','1kg'],
+    description:'Rich dark chocolate meets wholesome millet in every crunchy bite. A guilt-free indulgence packed with fibre, iron and natural energy — perfect for everyday snacking.',
+    ingredients:['Whole Millet','Dark Chocolate Coating','Cocoa Powder','Jaggery','No Artificial Colours','Non-GMO'],
+    nutrition:{Calories:'420 kcal',Protein:'8g',Fat:'14g',Carbs:'62g',Fibre:'6g'},
+    weights:['100g','200g','500g'],
   },
-  dates: {
-    id:'dates', name:'Medjool Dates', category:'Dry Fruit', price:299,
-    badge:'Organic 🌿', badgeColor:'#1976D2', bg:'#fdf0e8',
+  blueberrypancake: {
+    id:'blueberrypancake', name:'Blueberry Pancake', category:'Pancake Snack', price:299,
+    badge:'Limited 🌿', badgeColor:'#4a2070', bg:'#ede8fb',
     image:'assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png',
-    description:"The king of dates — Medjool dates from Jordan's finest orchards. Naturally sweet with a caramel-like richness, loaded with iron, potassium, and natural energy. A wholesome alternative to refined sugar, perfect for baking or snacking.",
-    ingredients:['100% Organic Medjool Dates','Cold-Packed','No Sugar Added','No Preservatives','Jordan Origin'],
-    nutrition:{Calories:'277 kcal',Protein:'2g',Fat:'0.2g',Carbs:'75g',Fibre:'7g'},
-    weights:['500g','1kg','2kg'],
+    description:'Light, fluffy pancake bites bursting with real blueberry goodness. Made with wholesome grains and no artificial colours — a breakfast treat you can enjoy anytime of the day.',
+    ingredients:['Whole Wheat Flour','Real Blueberry','Oats','Honey','No Artificial Flavours','Baked Not Fried'],
+    nutrition:{Calories:'380 kcal',Protein:'7g',Fat:'10g',Carbs:'64g',Fibre:'4g'},
+    weights:['100g','200g','500g'],
   },
-  mixed: {
-    id:'mixed', name:'Mixed Dry Fruits', category:'Trail Mix', price:299,
-    badge:'Mix 🎉', badgeColor:'#0d47a1', bg:'#e8f0fe',
-    image:'assets/images/32603c34-e7eb-411c-869c-a99345af8d3d_removalai_preview.png',
-    description:'A carefully curated blend of almonds, cashews, walnuts, raisins, and pistachios. Perfect nutritional balance for snacking, gifting, or everyday nourishment. Every handful is a complete nutrient boost your body will love.',
-    ingredients:['Premium Almonds','Whole Cashews','Walnuts','Golden Raisins','Pistachios','No Added Salt'],
-    nutrition:{Calories:'560 kcal',Protein:'15g',Fat:'42g',Carbs:'32g',Fibre:'8g'},
-    weights:['250g','500g','1kg'],
+  quinoapuffs: {
+    id:'quinoapuffs', name:'Quinoa Puffs', category:'Puff Snack', price:299,
+    badge:'Season 🌾', badgeColor:'#7a3810', bg:'#fdf0e2',
+    image:'assets/images/red.png',
+    description:'Airy, crunchy quinoa puffs seasoned to perfection. Loaded with complete protein and essential amino acids — a smarter snack that kids love and parents trust.',
+    ingredients:['Quinoa','Cheddar Seasoning','Sea Salt','Sunflower Oil','No MSG','Gluten-Free'],
+    nutrition:{Calories:'390 kcal',Protein:'10g',Fat:'12g',Carbs:'60g',Fibre:'5g'},
+    weights:['100g','200g','500g'],
   },
 };
 
@@ -80,11 +80,11 @@ function renderCart() {
   cartEmptyEl.style.display = 'none'; cartFooterEl.style.display = 'block';
   cart.forEach((item, idx) => {
     const row = document.createElement('div'); row.className = 'cart-item';
-    row.innerHTML = `<img class="cart-item-img" src="${item.image}" alt="${item.name}"><div class="cart-item-body"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div><div class="cart-qty"><button class="qty-btn" data-idx="${idx}" data-action="dec">&#8722;</button><span class="qty-num">${item.qty}</span><button class="qty-btn" data-idx="${idx}" data-action="inc">&#43;</button></div></div><button class="cart-item-remove" data-idx="${idx}" aria-label="Remove"><i class="fa-solid fa-xmark"></i></button>`;
+    row.innerHTML = `<img class="cart-item-img" src="${item.image}" alt="${item.name}"><div class="cart-item-body"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">₹${(item.price * item.qty).toFixed(2)}</div><div class="cart-qty"><button class="qty-btn" data-idx="${idx}" data-action="dec">&#8722;</button><span class="qty-num">${item.qty}</span><button class="qty-btn" data-idx="${idx}" data-action="inc">&#43;</button></div></div><button class="cart-item-remove" data-idx="${idx}" aria-label="Remove"><i class="fa-solid fa-xmark"></i></button>`;
     cartItemsEl.appendChild(row);
   });
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-  cartTotalEl.textContent = `$${subtotal.toFixed(2)}`;
+  cartTotalEl.textContent = `₹${subtotal.toFixed(2)}`;
   cartItemsEl.querySelectorAll('.qty-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const idx = +btn.dataset.idx;
@@ -177,7 +177,7 @@ document.querySelectorAll('.mega-item[data-pdp]').forEach(item => {
   document.getElementById('pdpName').textContent = product.name;
 
   /* Price */
-  document.getElementById('pdpPrice').textContent = '$' + product.price;
+  document.getElementById('pdpPrice').textContent = '₹' + product.price;
 
   /* Weight buttons */
   const weightsEl = document.getElementById('pdpWeights');
@@ -231,7 +231,7 @@ document.querySelectorAll('.mega-item[data-pdp]').forEach(item => {
         <div class="pdp-rel-cat">${p.category}</div>
         <div class="pdp-rel-name">${p.name}</div>
         <div class="pdp-rel-footer">
-          <div class="pdp-rel-price">$${p.price}</div>
+          <div class="pdp-rel-price">₹${p.price}</div>
           <button class="pdp-rel-btn">View</button>
         </div>
       </div>

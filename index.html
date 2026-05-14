@@ -12,6 +12,76 @@
 </head>
 <body>
 
+<!-- ══ SEARCH MODAL ══ -->
+<div class="search-modal" id="searchModal" aria-hidden="true">
+  <div class="sm-header">
+    <button class="sm-back" id="smBack" aria-label="Close search"><i class="fa-solid fa-arrow-left"></i></button>
+    <div class="sm-input-wrap">
+      <i class="fa-solid fa-magnifying-glass sm-icon"></i>
+      <input type="text" id="smInput" placeholder='Search for "Millet Choco"' autocomplete="off" spellcheck="false"/>
+      <button class="sm-clear" id="smClear" aria-label="Clear"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  </div>
+  <div class="sm-body" id="smBody">
+    <!-- Popular Searches -->
+    <div class="sm-section">
+      <div class="sm-sec-title"><i class="fa-solid fa-arrow-trend-up"></i> Popular Searches</div>
+      <div class="sm-tags">
+        <span class="sm-tag" data-q="Millet Vanilla">Millet Vanilla</span>
+        <span class="sm-tag" data-q="Millet Choco">Millet Choco</span>
+        <span class="sm-tag" data-q="Blueberry Pancake">Blueberry Pancake</span>
+        <span class="sm-tag" data-q="Quinoa Puffs">Quinoa Puffs</span>
+        <span class="sm-tag" data-q="Millet">Millet Snacks</span>
+        <span class="sm-tag" data-q="Puffs">Puff Snacks</span>
+      </div>
+    </div>
+    <!-- What's New -->
+    <div class="sm-section">
+      <div class="sm-sec-title">What's New <span class="sm-sparkle">✨</span></div>
+      <div class="sm-new-grid">
+        <div class="sm-new-card" onclick="window.location.href='product.html?id=milletvanilla'">
+          <div class="sm-new-img" style="background:#edf5e1"><img src="assets/images/green.png" alt="Millet Vanilla"></div>
+          <div class="sm-new-name">Millet Vanilla</div>
+          <div class="sm-new-sub">Millet Snack · 100g</div>
+          <div class="sm-new-foot">
+            <span class="sm-new-price">₹299</span>
+            <button class="sm-add-btn add-to-cart-btn" data-name="Millet Vanilla" data-price="299" data-image="assets/images/green.png">ADD</button>
+          </div>
+        </div>
+        <div class="sm-new-card" onclick="window.location.href='product.html?id=milletchoco'">
+          <div class="sm-new-img" style="background:#f5ede6"><img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Millet Choco"></div>
+          <div class="sm-new-name">Millet Choco</div>
+          <div class="sm-new-sub">Millet Snack · 100g</div>
+          <div class="sm-new-foot">
+            <span class="sm-new-price">₹299</span>
+            <button class="sm-add-btn add-to-cart-btn" data-name="Millet Choco" data-price="299" data-image="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png">ADD</button>
+          </div>
+        </div>
+        <div class="sm-new-card" onclick="window.location.href='product.html?id=blueberrypancake'">
+          <div class="sm-new-img" style="background:#ede8fb"><img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt="Blueberry Pancake"></div>
+          <div class="sm-new-name">Blueberry Pancake</div>
+          <div class="sm-new-sub">Pancake Snack · 100g</div>
+          <div class="sm-new-foot">
+            <span class="sm-new-price">₹299</span>
+            <button class="sm-add-btn add-to-cart-btn" data-name="Blueberry Pancake" data-price="299" data-image="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png">ADD</button>
+          </div>
+        </div>
+        <div class="sm-new-card" onclick="window.location.href='product.html?id=quinoapuffs'">
+          <div class="sm-new-img" style="background:#fdf0e2"><img src="assets/images/red.png" alt="Quinoa Puffs"></div>
+          <div class="sm-new-name">Quinoa Puffs</div>
+          <div class="sm-new-sub">Puff Snack · 100g</div>
+          <div class="sm-new-foot">
+            <span class="sm-new-price">₹299</span>
+            <button class="sm-add-btn add-to-cart-btn" data-name="Quinoa Puffs" data-price="299" data-image="assets/images/red.png">ADD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Live Results -->
+  <div class="sm-results" id="smResults"></div>
+</div>
+
 <!-- ══ CART SIDEBAR ══ -->
 <div class="cart-overlay" id="cartOverlay"></div>
 <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart">
@@ -86,37 +156,37 @@
               <a href="#kids-shop" class="mega-view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="mega-grid">
-              <div class="mega-item" data-pdp="almonds">
+              <div class="mega-item" data-pdp="milletvanilla">
                 <div class="mega-item-text">
-                  <div class="mega-item-cat">Dry Fruit</div>
-                  <div class="mega-item-name">Premium Almonds</div>
-                  <div class="mega-item-price">$299</div>
+                  <div class="mega-item-cat">Millet Snack</div>
+                  <div class="mega-item-name">Millet Vanilla</div>
+                  <div class="mega-item-price">₹299</div>
                 </div>
-                <img src="assets/images/red.png" alt="Almonds" class="mega-item-img">
+                <img src="assets/images/green.png" alt="Millet Vanilla" class="mega-item-img">
               </div>
-              <div class="mega-item" data-pdp="cashews">
+              <div class="mega-item" data-pdp="milletchoco">
                 <div class="mega-item-text">
-                  <div class="mega-item-cat">Dry Nut</div>
-                  <div class="mega-item-name">Premium Cashews</div>
-                  <div class="mega-item-price">$299</div>
+                  <div class="mega-item-cat">Millet Snack</div>
+                  <div class="mega-item-name">Millet Choco</div>
+                  <div class="mega-item-price">₹299</div>
                 </div>
-                <img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Cashews" class="mega-item-img">
+                <img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Millet Choco" class="mega-item-img">
               </div>
-              <div class="mega-item" data-pdp="dates">
+              <div class="mega-item" data-pdp="blueberrypancake">
                 <div class="mega-item-text">
-                  <div class="mega-item-cat">Dry Fruit</div>
-                  <div class="mega-item-name">Medjool Dates</div>
-                  <div class="mega-item-price">$299</div>
+                  <div class="mega-item-cat">Pancake Snack</div>
+                  <div class="mega-item-name">Blueberry Pancake</div>
+                  <div class="mega-item-price">₹299</div>
                 </div>
-                <img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt="Dates" class="mega-item-img">
+                <img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt="Blueberry Pancake" class="mega-item-img">
               </div>
-              <div class="mega-item" data-pdp="mixed">
+              <div class="mega-item" data-pdp="quinoapuffs">
                 <div class="mega-item-text">
-                  <div class="mega-item-cat">Trail Mix</div>
-                  <div class="mega-item-name">Mixed Dry Fruits</div>
-                  <div class="mega-item-price">$299</div>
+                  <div class="mega-item-cat">Puff Snack</div>
+                  <div class="mega-item-name">Quinoa Puffs</div>
+                  <div class="mega-item-price">₹299</div>
                 </div>
-                <img src="assets/images/32603c34-e7eb-411c-869c-a99345af8d3d_removalai_preview.png" alt="Mix" class="mega-item-img">
+                <img src="assets/images/red.png" alt="Quinoa Puffs" class="mega-item-img">
               </div>
               <div class="mega-item mega-soon">
                 <div class="mega-item-text">
@@ -202,14 +272,56 @@
       <li><a href="#kids-contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
+      <!-- Search -->
+      <div class="nav-search-wrap" id="navSearchWrap">
+        <button class="nav-search-btn" id="navSearchBtn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="nav-search-box" id="navSearchBox">
+          <input type="text" id="navSearchInput" placeholder="Search products..." autocomplete="off"/>
+          <button class="nav-search-close" id="navSearchClose"><i class="fa-solid fa-xmark"></i></button>
+          <div class="nav-search-results" id="navSearchResults"></div>
+        </div>
+      </div>
       <button class="nav-cart-btn" id="navCartBtn" aria-label="Open cart">
         <i class="fa-solid fa-basket-shopping"></i>
         <span class="cart-badge" id="cartBadge" style="display:none">0</span>
       </button>
       <button class="btn-login" id="navLoginBtn">Login</button>
       <button class="btn-signup" id="navSignupBtn">Sign Up</button>
+      <!-- Hamburger -->
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mob-menu-overlay" id="mobMenuOverlay"></div>
+  <div class="mob-menu" id="mobMenu">
+    <div class="mob-menu-head">
+      <img src="assets/images/Malola_Logo_600x300-01-1536x768.webp" alt="Malola" class="mob-logo">
+      <button class="mob-menu-close" id="mobMenuClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mob-search-wrap">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="mobSearchInput" placeholder="Search products..."/>
+    </div>
+    <ul class="mob-nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#kids-about">About</a></li>
+      <li><a href="#kids-shop">Shop</a></li>
+      <li><a href="#kids-video">Videos</a></li>
+      <li><a href="#kids-contact">Contact</a></li>
+    </ul>
+    <div class="mob-products">
+      <div class="mob-prod-title">Our Products</div>
+      <div class="mob-prod-item" data-pdp="milletvanilla"><img src="assets/images/green.png" alt=""><span>Millet Vanilla</span><small>₹299</small></div>
+      <div class="mob-prod-item" data-pdp="milletchoco"><img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt=""><span>Millet Choco</span><small>₹299</small></div>
+      <div class="mob-prod-item" data-pdp="blueberrypancake"><img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt=""><span>Blueberry Pancake</span><small>₹299</small></div>
+      <div class="mob-prod-item" data-pdp="quinoapuffs"><img src="assets/images/red.png" alt=""><span>Quinoa Puffs</span><small>₹299</small></div>
+    </div>
+    <div class="mob-menu-actions">
+      <button class="mob-login-btn" id="mobLoginBtn">Login</button>
+      <button class="mob-signup-btn" id="mobSignupBtn">Sign Up</button>
+    </div>
+  </div>
   <div id="bgWord">COFFEE</div>
   <canvas id="beansCanvas"></canvas>
   <div class="side-cup left" id="leftCup">
@@ -259,9 +371,9 @@
       <button class="nav-btn" id="nextBtn">&#8594;</button>
     </div>
     <div class="stats">
-      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Unique Coffee</div></div>
-      <div class="stat"><div class="stat-num">20K+</div><div class="stat-label">Satisfied Customers</div></div>
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Arabica Beans</div></div>
+      <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Snack Varieties</div></div>
+      <div class="stat"><div class="stat-num">20K+</div><div class="stat-label">Happy Customers</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Natural Ingredients</div></div>
     </div>
   </div>
 </div>
@@ -312,65 +424,65 @@
     <div class="kids-product-grid">
       <!-- Card 1 -->
       <div class="k-prod-card">
-        <div class="k-prod-img" style="background:#fff5ee">
-          <img src="assets/images/red.png" alt="Premium Almonds">
-          <div class="k-prod-badge" style="background:#1565C0">Fresh 🔥</div>
+        <div class="k-prod-img" style="background:#edf5e1">
+          <img src="assets/images/green.png" alt="Millet Vanilla">
+          <div class="k-prod-badge" style="background:#4e7a1e">Best Seller 🔥</div>
         </div>
         <div class="k-prod-info">
-          <div class="k-prod-type">Dry Fruit</div>
-          <div class="k-prod-name">Premium Almonds</div>
-          <div class="k-prod-desc">Rich in vitamin E, magnesium and healthy fats. California grade A.</div>
+          <div class="k-prod-type">Millet Snack</div>
+          <div class="k-prod-name">Millet Vanilla</div>
+          <div class="k-prod-desc">Creamy vanilla meets wholesome millet — smooth, guilt-free and fibre-packed.</div>
           <div class="k-prod-footer">
-            <div class="k-prod-price"><sup>$</sup>299</div>
-            <button class="k-add-btn add-to-cart-btn" data-name="Premium Almonds" data-price="299" data-image="assets/images/red.png">+ Cart</button>
+            <div class="k-prod-price"><sup>₹</sup>299</div>
+            <button class="k-add-btn add-to-cart-btn" data-name="Millet Vanilla" data-price="299" data-image="assets/images/green.png">+ Cart</button>
           </div>
         </div>
       </div>
       <!-- Card 2 -->
       <div class="k-prod-card">
-        <div class="k-prod-img" style="background:#fdf8ee">
-          <img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Premium Cashews">
-          <div class="k-prod-badge" style="background:#0d2b6b">Premium ✨</div>
+        <div class="k-prod-img" style="background:#f5ede6">
+          <img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Millet Choco">
+          <div class="k-prod-badge" style="background:#5c3e18">Fan Fav ✨</div>
         </div>
         <div class="k-prod-info">
-          <div class="k-prod-type">Dry Nut</div>
-          <div class="k-prod-name">Premium Cashews</div>
-          <div class="k-prod-desc">Buttery W320 grade cashews — naturally rich in copper and zinc.</div>
+          <div class="k-prod-type">Millet Snack</div>
+          <div class="k-prod-name">Millet Choco</div>
+          <div class="k-prod-desc">Rich dark chocolate meets wholesome millet — guilt-free and energy-packed.</div>
           <div class="k-prod-footer">
-            <div class="k-prod-price"><sup>$</sup>299</div>
-            <button class="k-add-btn add-to-cart-btn" data-name="Premium Cashews" data-price="299" data-image="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png">+ Cart</button>
+            <div class="k-prod-price"><sup>₹</sup>299</div>
+            <button class="k-add-btn add-to-cart-btn" data-name="Millet Choco" data-price="299" data-image="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png">+ Cart</button>
           </div>
         </div>
       </div>
       <!-- Card 3 -->
       <div class="k-prod-card">
-        <div class="k-prod-img" style="background:#fdf0e8">
-          <img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt="Medjool Dates">
-          <div class="k-prod-badge" style="background:#1976D2">Organic 🌿</div>
+        <div class="k-prod-img" style="background:#ede8fb">
+          <img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt="Blueberry Pancake">
+          <div class="k-prod-badge" style="background:#4a2070">Limited 🌿</div>
         </div>
         <div class="k-prod-info">
-          <div class="k-prod-type">Dry Fruit</div>
-          <div class="k-prod-name">Medjool Dates</div>
-          <div class="k-prod-desc">The king of dates — naturally sweet, fibrous and iron-rich.</div>
+          <div class="k-prod-type">Pancake Snack</div>
+          <div class="k-prod-name">Blueberry Pancake</div>
+          <div class="k-prod-desc">Fluffy pancake bites with real blueberry — no artificial colours.</div>
           <div class="k-prod-footer">
-            <div class="k-prod-price"><sup>$</sup>299</div>
-            <button class="k-add-btn add-to-cart-btn" data-name="Medjool Dates" data-price="299" data-image="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png">+ Cart</button>
+            <div class="k-prod-price"><sup>₹</sup>299</div>
+            <button class="k-add-btn add-to-cart-btn" data-name="Blueberry Pancake" data-price="299" data-image="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png">+ Cart</button>
           </div>
         </div>
       </div>
       <!-- Card 4 -->
       <div class="k-prod-card">
-        <div class="k-prod-img" style="background:#e8f0fe">
-          <img src="assets/images/32603c34-e7eb-411c-869c-a99345af8d3d_removalai_preview.png" alt="Mixed Dry Fruits">
-          <div class="k-prod-badge" style="background:#0d47a1">Mix 🎉</div>
+        <div class="k-prod-img" style="background:#fdf0e2">
+          <img src="assets/images/red.png" alt="Quinoa Puffs">
+          <div class="k-prod-badge" style="background:#7a3810">Season 🌾</div>
         </div>
         <div class="k-prod-info">
-          <div class="k-prod-type">Trail Mix</div>
-          <div class="k-prod-name">Mixed Dry Fruits</div>
-          <div class="k-prod-desc">Almonds, cashews, walnuts, raisins &amp; pistachios — curated blend.</div>
+          <div class="k-prod-type">Puff Snack</div>
+          <div class="k-prod-name">Quinoa Puffs</div>
+          <div class="k-prod-desc">Airy crunchy puffs loaded with complete protein — kids love them.</div>
           <div class="k-prod-footer">
-            <div class="k-prod-price"><sup>$</sup>299</div>
-            <button class="k-add-btn add-to-cart-btn" data-name="Mixed Dry Fruits" data-price="299" data-image="assets/images/32603c34-e7eb-411c-869c-a99345af8d3d_removalai_preview.png">+ Cart</button>
+            <div class="k-prod-price"><sup>₹</sup>299</div>
+            <button class="k-add-btn add-to-cart-btn" data-name="Quinoa Puffs" data-price="299" data-image="assets/images/red.png">+ Cart</button>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 /* ── HERO PRODUCTS ── */
 const products=[
-  {tag:"Best Seller",title:"Matcha\nFrappuccino",desc:"A refreshing blend of premium matcha and creamy milk, topped with whipped cream and golden pearls for a truly indulgent experience.",image:"assets/images/green.png",badge:"New",name:"Matcha Frap",type:"Cold Brew",price:"299",word:"MATCHA",bg:"#7fa83a",ring:"#4e7a1e"},
-  {tag:"Fan Favourite",title:"Caramel\nMacchiato",desc:"Layers of vanilla syrup, velvety steamed milk and bold espresso, drizzled with buttery caramel ribbons - the ultimate comfort cup.",image:"assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png",badge:"Hot",name:"Caramel Mac",type:"Espresso",price:"299",word:"COFFEE",bg:"#8a6230",ring:"#5c3e18"},
-  {tag:"Limited Edition",title:"Berry\nCold Brew",desc:"24-hour steeped cold brew infused with wild berry essence - smooth, bold, deeply refreshing and impossibly vibrant.",image:"assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png",badge:"Limited",name:"Berry Brew",type:"Cold Brew",price:"299",word:"BREWS",bg:"#6a3a8c",ring:"#4a2070"},
-  {tag:"Seasonal Pick",title:"Pumpkin\nSpice Latte",desc:"Espresso meets spiced pumpkin cream in this seasonal classic - warm, cozy and impossibly good on any autumn afternoon.",image:"assets/images/red.png",badge:"Season",name:"Pumpkin Spice",type:"Latte",price:"299",word:"SPICE",bg:"#a05520",ring:"#7a3810"},
+  {tag:"Best Seller",title:"Millet\nVanilla",desc:"Creamy vanilla meets wholesome millet in every delightful bite. A smooth, guilt-free treat packed with fibre and natural goodness — loved by kids and parents alike.",image:"assets/images/green.png",badge:"New",name:"Millet Vanilla",type:"Millet Snack",price:"299",word:"VANILLA",bg:"#7fa83a",ring:"#4e7a1e"},
+  {tag:"Fan Favourite",title:"Millet\nChoco",desc:"Rich dark chocolate meets wholesome millet in every crunchy bite. A guilt-free indulgence packed with fibre, iron and natural energy — perfect for everyday snacking.",image:"assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png",badge:"Hot",name:"Millet Choco",type:"Millet Snack",price:"299",word:"CHOCO",bg:"#8a6230",ring:"#5c3e18"},
+  {tag:"Limited Edition",title:"Blueberry\nPancake",desc:"Light, fluffy pancake bites bursting with real blueberry goodness. Made with wholesome grains and no artificial colours — a breakfast treat anytime of the day.",image:"assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png",badge:"Limited",name:"Blueberry Pancake",type:"Pancake Snack",price:"299",word:"BERRY",bg:"#6a3a8c",ring:"#4a2070"},
+  {tag:"Seasonal Pick",title:"Quinoa\nPuffs",desc:"Airy, crunchy quinoa puffs seasoned to perfection. Loaded with complete protein and essential amino acids — a smarter snack kids can't put down.",image:"assets/images/red.png",badge:"Season",name:"Quinoa Puffs",type:"Puff Snack",price:"299",word:"PUFFS",bg:"#a05520",ring:"#7a3810"},
 ];
 
 let current=0,animating=false;
@@ -71,7 +71,7 @@ function goTo(next){
   [productBadge,productLabel].forEach(el=>{el.style.transition="opacity .25s";el.style.opacity="0";});
   bgWord.style.transition="opacity .3s";bgWord.style.opacity="0";
   setTimeout(()=>{
-    hero.style.background=p.bg;bgWord.textContent=p.word;productRing.style.background=p.ring;productBadge.textContent=p.badge;productLabel.textContent=p.name;slideTag.textContent=p.tag;slideTitle.innerHTML=p.title.replace("\n","<br/>");slideDesc.textContent=p.desc;slidePrice.innerHTML=`<sup>$</sup>${p.price}`;
+    hero.style.background=p.bg;bgWord.textContent=p.word;productRing.style.background=p.ring;productBadge.textContent=p.badge;productLabel.textContent=p.name;slideTag.textContent=p.tag;slideTitle.innerHTML=p.title.replace("\n","<br/>");slideDesc.textContent=p.desc;slidePrice.innerHTML=`<sup>₹</sup>${p.price}`;
     productImage.src=p.image;productImage.alt=p.name;productImage.style.transition="none";productImage.style.transform=`translateX(${dir*-130}px) scale(0.75)`;productImage.style.opacity="0";
     const heroBtn=document.getElementById("heroAddCart");if(heroBtn){heroBtn.dataset.name=p.name;heroBtn.dataset.price=p.price;heroBtn.dataset.image=p.image;}
     requestAnimationFrame(()=>{requestAnimationFrame(()=>{
@@ -139,11 +139,11 @@ function renderCart(){
   cartEmptyEl.style.display="none";cartFooterEl.style.display="block";
   cart.forEach((item,idx)=>{
     const row=document.createElement("div");row.className="cart-item";
-    row.innerHTML=`<img class="cart-item-img" src="${item.image}" alt="${item.name}"><div class="cart-item-body"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">$${(item.price*item.qty).toFixed(2)}</div><div class="cart-qty"><button class="qty-btn" data-idx="${idx}" data-action="dec">&#8722;</button><span class="qty-num">${item.qty}</span><button class="qty-btn" data-idx="${idx}" data-action="inc">&#43;</button></div></div><button class="cart-item-remove" data-idx="${idx}" aria-label="Remove"><i class="fa-solid fa-xmark"></i></button>`;
+    row.innerHTML=`<img class="cart-item-img" src="${item.image}" alt="${item.name}"><div class="cart-item-body"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">₹${(item.price*item.qty).toFixed(2)}</div><div class="cart-qty"><button class="qty-btn" data-idx="${idx}" data-action="dec">&#8722;</button><span class="qty-num">${item.qty}</span><button class="qty-btn" data-idx="${idx}" data-action="inc">&#43;</button></div></div><button class="cart-item-remove" data-idx="${idx}" aria-label="Remove"><i class="fa-solid fa-xmark"></i></button>`;
     cartItemsEl.appendChild(row);
   });
   const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
-  cartTotalEl.textContent=`$${subtotal.toFixed(2)}`;
+  cartTotalEl.textContent=`₹${subtotal.toFixed(2)}`;
   cartItemsEl.querySelectorAll(".qty-btn").forEach(btn=>{btn.addEventListener("click",()=>{const idx=+btn.dataset.idx;if(btn.dataset.action==="inc"){cart[idx].qty+=1;}else{cart[idx].qty-=1;if(cart[idx].qty<=0)cart.splice(idx,1);}renderCart();});});
   cartItemsEl.querySelectorAll(".cart-item-remove").forEach(btn=>{btn.addEventListener("click",()=>{const idx=+btn.dataset.idx;cart.splice(idx,1);renderCart();});});
 }
@@ -183,6 +183,124 @@ function showToast(html,duration=3000){
   setTimeout(()=>{t.classList.remove("show");setTimeout(()=>t.remove(),420);},duration);
 }
 
+/* ── HAMBURGER MOBILE MENU ── */
+(function(){
+  const ham = document.getElementById('navHamburger');
+  const mob = document.getElementById('mobMenu');
+  const overlay = document.getElementById('mobMenuOverlay');
+  const close = document.getElementById('mobMenuClose');
+  function openMob(){mob.classList.add('open');overlay.classList.add('open');ham.classList.add('open');document.body.style.overflow='hidden';}
+  function closeMob(){mob.classList.remove('open');overlay.classList.remove('open');ham.classList.remove('open');document.body.style.overflow='';}
+  ham.addEventListener('click', openMob);
+  close.addEventListener('click', closeMob);
+  overlay.addEventListener('click', closeMob);
+  document.getElementById('mobLoginBtn').addEventListener('click',()=>{closeMob();openAuth('login');});
+  document.getElementById('mobSignupBtn').addEventListener('click',()=>{closeMob();openAuth('register');});
+  document.querySelectorAll('.mob-prod-item[data-pdp]').forEach(item=>{
+    item.addEventListener('click',()=>{window.location.href='product.html?id='+item.dataset.pdp;});
+  });
+  document.querySelectorAll('.mob-nav-links a').forEach(a=>{a.addEventListener('click',closeMob);});
+})();
+
+/* ── SEARCH MODAL ── */
+(function(){
+  const modal     = document.getElementById('searchModal');
+  const smInput   = document.getElementById('smInput');
+  const smClear   = document.getElementById('smClear');
+  const smBack    = document.getElementById('smBack');
+  const smBody    = document.getElementById('smBody');
+  const smResults = document.getElementById('smResults');
+
+  const catalog = [
+    {id:'milletvanilla',    name:'Millet Vanilla',    cat:'Millet Snack',   price:299, img:'assets/images/green.png'},
+    {id:'milletchoco',      name:'Millet Choco',      cat:'Millet Snack',   price:299, img:'assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png'},
+    {id:'blueberrypancake', name:'Blueberry Pancake', cat:'Pancake Snack',  price:299, img:'assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png'},
+    {id:'quinoapuffs',      name:'Quinoa Puffs',      cat:'Puff Snack',     price:299, img:'assets/images/red.png'},
+  ];
+
+  function openModal() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => smInput.focus(), 200);
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    smInput.value = '';
+    smClear.classList.remove('visible');
+    smBody.classList.remove('hidden');
+    smResults.classList.remove('active');
+    smResults.innerHTML = '';
+  }
+
+  /* open from nav search button + mobile search input tap */
+  const navSearchBtn = document.getElementById('navSearchBtn');
+  if (navSearchBtn) navSearchBtn.addEventListener('click', openModal);
+  const mobSearchInput = document.getElementById('mobSearchInput');
+  if (mobSearchInput) mobSearchInput.addEventListener('focus', openModal);
+
+  smBack.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* popular search tags */
+  document.querySelectorAll('.sm-tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      smInput.value = tag.dataset.q;
+      smClear.classList.add('visible');
+      doSearch(tag.dataset.q);
+    });
+  });
+
+  /* live search */
+  smInput.addEventListener('input', () => {
+    const q = smInput.value.trim();
+    smClear.classList.toggle('visible', q.length > 0);
+    doSearch(q);
+  });
+
+  smClear.addEventListener('click', () => {
+    smInput.value = '';
+    smClear.classList.remove('visible');
+    smBody.classList.remove('hidden');
+    smResults.classList.remove('active');
+    smResults.innerHTML = '';
+    smInput.focus();
+  });
+
+  function doSearch(q) {
+    if (!q) {
+      smBody.classList.remove('hidden');
+      smResults.classList.remove('active');
+      smResults.innerHTML = '';
+      return;
+    }
+    smBody.classList.add('hidden');
+    smResults.classList.add('active');
+    const matches = catalog.filter(p =>
+      p.name.toLowerCase().includes(q.toLowerCase()) ||
+      p.cat.toLowerCase().includes(q.toLowerCase())
+    );
+    if (matches.length === 0) {
+      smResults.innerHTML = `<div class="sm-no-result"><i class="fa-solid fa-magnifying-glass"></i><p>No results for "${q}"</p><span>Try searching for Millet, Puffs or Pancake</span></div>`;
+    } else {
+      smResults.innerHTML = `<div class="sm-res-label">${matches.length} result${matches.length>1?'s':''} found</div>` +
+        matches.map(p => `
+          <div class="sm-res-item" onclick="window.location.href='product.html?id=${p.id}'">
+            <img src="${p.img}" alt="${p.name}" class="sm-res-img">
+            <div class="sm-res-info">
+              <div class="sm-res-name">${p.name}</div>
+              <div class="sm-res-cat">${p.cat} · 100g</div>
+              <div class="sm-res-price">₹${p.price}</div>
+            </div>
+            <button class="sm-res-add add-to-cart-btn" data-name="${p.name}" data-price="${p.price}" data-image="${p.img}">ADD</button>
+          </div>`
+        ).join('');
+    }
+  }
+})();
+
 /* ── PRODUCT PAGE NAVIGATION ── */
 (function(){
   /* mega menu items → navigate to product page */
@@ -194,8 +312,8 @@ function showToast(html,duration=3000){
 
   /* product cards on page → navigate to product page */
   const nameMap = {
-    'Premium Almonds':'almonds','Premium Cashews':'cashews',
-    'Medjool Dates':'dates','Mixed Dry Fruits':'mixed',
+    'Millet Vanilla':'milletvanilla','Millet Choco':'milletchoco',
+    'Blueberry Pancake':'blueberrypancake','Quinoa Puffs':'quinoapuffs',
   };
   document.querySelectorAll('.k-prod-card').forEach(card => {
     const nameEl = card.querySelector('.k-prod-name');
