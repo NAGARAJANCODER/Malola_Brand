@@ -488,7 +488,7 @@ html,body{width:100%;min-height:100%;overflow-x:hidden;font-family:'Nunito',sans
   .nav-links{display:none}
   .btn-login{display:none}
   .btn-signup{display:none}
-  .nav-hamburger{display:flex}
+  .nav-hamburger{display:flex!important;background:var(--yellow)!important;border:none!important;box-shadow:0 4px 14px rgba(254,207,10,.45)!important}
   .nav-search-box.open{width:200px}
   .nav-search-results{width:200px}
 
@@ -678,10 +678,9 @@ html,body{width:100%;min-height:100%;overflow-x:hidden;font-family:'Nunito',sans
 .sm-tag:hover{border-color:var(--yellow);background:rgba(254,207,10,.12)}
 
 .sm-new-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:10px;margin-top:4px;
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:12px;margin-top:4px;
 }
-@media(max-width:500px){.sm-new-grid{grid-template-columns:repeat(2,1fr)}}
 .sm-new-card{
   border:1.5px solid rgba(13,43,107,.1);border-radius:14px;
   overflow:hidden;cursor:pointer;
@@ -689,13 +688,13 @@ html,body{width:100%;min-height:100%;overflow-x:hidden;font-family:'Nunito',sans
 }
 .sm-new-card:hover{box-shadow:0 6px 20px rgba(13,43,107,.12);transform:translateY(-2px)}
 .sm-new-img{
-  height:90px;display:flex;align-items:center;justify-content:center;
+  height:120px;display:flex;align-items:center;justify-content:center;
   border-radius:12px 12px 0 0;overflow:hidden;
 }
-.sm-new-img img{height:70px;width:70px;object-fit:contain}
+.sm-new-img img{height:95px;width:95px;object-fit:contain}
 .sm-new-name{
-  font-family:'Fredoka One',cursive;font-size:.78rem;
-  color:var(--kids-dark);padding:7px 8px 2px;
+  font-family:'Fredoka One',cursive;font-size:.9rem;
+  color:var(--kids-dark);padding:8px 10px 2px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .sm-new-sub{display:none}
