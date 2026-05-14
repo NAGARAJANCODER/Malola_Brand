@@ -530,11 +530,11 @@ html,body{width:100%;min-height:100%;overflow-x:hidden;font-family:'Nunito',sans
   /* HERO — stack layout */
   .side-cup{display:none}
   #bgWord{font-size:clamp(70px,22vw,110px)}
-  #productStage{top:12%;transform:translateX(-50%);left:50%}
+  #productStage{top:28%;transform:translateX(-50%);left:50%}
   .product-ring{width:clamp(160px,46vw,200px);height:clamp(160px,46vw,200px)}
   .product-label{font-size:.78rem;padding:6px 18px;margin-top:12px}
   #leftContent{
-    position:absolute;top:54%;bottom:auto;
+    position:absolute;bottom:85px;top:auto;
     transform:none;left:0;right:0;
     max-width:100%;padding:0 22px;
     text-align:center;
