@@ -202,9 +202,10 @@ function showToast(html,duration=3000){
   document.querySelectorAll('.mob-nav-links a').forEach(a=>{a.addEventListener('click',closeMob);});
 })();
 
-/* ── SEARCH MODAL ── */
+/* ── SEARCH WIDGET ── */
 (function(){
   const modal     = document.getElementById('searchModal');
+  const overlay   = document.getElementById('searchOverlay');
   const smInput   = document.getElementById('smInput');
   const smClear   = document.getElementById('smClear');
   const smBack    = document.getElementById('smBack');
@@ -218,16 +219,16 @@ function showToast(html,duration=3000){
     {id:'quinoapuffs',      name:'Quinoa Puffs',      cat:'Puff Snack',     price:299, img:'assets/images/red.png'},
   ];
 
-  function openModal() {
+  function openWidget() {
     modal.classList.add('open');
+    overlay.classList.add('open');
     modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => smInput.focus(), 200);
+    setTimeout(() => smInput.focus(), 150);
   }
-  function closeModal() {
+  function closeWidget() {
     modal.classList.remove('open');
+    overlay.classList.remove('open');
     modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
     smInput.value = '';
     smClear.classList.remove('visible');
     smBody.classList.remove('hidden');
@@ -235,16 +236,15 @@ function showToast(html,duration=3000){
     smResults.innerHTML = '';
   }
 
-  /* open from nav search button + mobile search input tap */
   const navSearchBtn = document.getElementById('navSearchBtn');
-  if (navSearchBtn) navSearchBtn.addEventListener('click', openModal);
+  if (navSearchBtn) navSearchBtn.addEventListener('click', e => { e.stopPropagation(); openWidget(); });
   const mobSearchInput = document.getElementById('mobSearchInput');
-  if (mobSearchInput) mobSearchInput.addEventListener('focus', openModal);
+  if (mobSearchInput) mobSearchInput.addEventListener('focus', openWidget);
 
-  smBack.addEventListener('click', closeModal);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  smBack.addEventListener('click', closeWidget);
+  overlay.addEventListener('click', closeWidget);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWidget(); });
 
-  /* popular search tags */
   document.querySelectorAll('.sm-tag').forEach(tag => {
     tag.addEventListener('click', () => {
       smInput.value = tag.dataset.q;
@@ -253,7 +253,6 @@ function showToast(html,duration=3000){
     });
   });
 
-  /* live search */
   smInput.addEventListener('input', () => {
     const q = smInput.value.trim();
     smClear.classList.toggle('visible', q.length > 0);
@@ -283,7 +282,7 @@ function showToast(html,duration=3000){
       p.cat.toLowerCase().includes(q.toLowerCase())
     );
     if (matches.length === 0) {
-      smResults.innerHTML = `<div class="sm-no-result"><i class="fa-solid fa-magnifying-glass"></i><p>No results for "${q}"</p><span>Try searching for Millet, Puffs or Pancake</span></div>`;
+      smResults.innerHTML = `<div class="sm-no-result"><i class="fa-solid fa-magnifying-glass"></i><p>No results for "${q}"</p><span>Try Millet, Puffs or Pancake</span></div>`;
     } else {
       smResults.innerHTML = `<div class="sm-res-label">${matches.length} result${matches.length>1?'s':''} found</div>` +
         matches.map(p => `
@@ -294,7 +293,7 @@ function showToast(html,duration=3000){
               <div class="sm-res-cat">${p.cat} · 100g</div>
               <div class="sm-res-price">₹${p.price}</div>
             </div>
-            <button class="sm-res-add add-to-cart-btn" data-name="${p.name}" data-price="${p.price}" data-image="${p.img}">ADD</button>
+            <button class="sm-res-add add-to-cart-btn" data-name="${p.name}" data-price="${p.price}" data-image="${p.img}" onclick="event.stopPropagation()">ADD</button>
           </div>`
         ).join('');
     }
