@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NaturNest — Premium Natural & Dry Fruits</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Cormorant+Garamond:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<!-- ══ CART SIDEBAR ══ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart">
+  <div class="cart-header">
+    <div class="cart-title"><i class="fa-solid fa-basket-shopping"></i> Your Cart</div>
+    <button class="cart-close" id="cartClose" aria-label="Close cart">&#10005;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <i class="fa-solid fa-seedling"></i>
+      <p>Your cart is empty</p>
+      <span>Add some natural goodness!</span>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <strong id="cartTotal">$0.00</strong>
+    </div>
+    <p class="cart-note">Shipping &amp; taxes calculated at checkout</p>
+    <button class="checkout-btn">Checkout &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+</aside>
+
+<!-- ══ AUTH MODAL ══ -->
+<div class="auth-overlay" id="authOverlay"></div>
+<div class="auth-modal" id="authModal" role="dialog" aria-modal="true">
+  <button class="auth-close" id="authClose" aria-label="Close">&#10005;</button>
+  <div class="auth-brand">
+    <div class="auth-logo-ring">NN</div>
+    <div class="auth-logo-text">NaturNest<small>Pure &amp; Natural</small></div>
+  </div>
+  <div class="auth-tabs">
+    <button class="auth-tab active" data-tab="login">Login</button>
+    <button class="auth-tab" data-tab="register">Register</button>
+  </div>
+  <form class="auth-form" id="loginForm" novalidate>
+    <div class="form-group"><label>Email Address</label><div class="input-icon-wrap"><i class="fa-solid fa-envelope"></i><input type="email" placeholder="you@email.com" required></div></div>
+    <div class="form-group"><label>Password</label><div class="input-icon-wrap"><i class="fa-solid fa-lock"></i><input type="password" placeholder="••••••••" required></div></div>
+    <button type="submit" class="auth-submit">Login &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+    <p class="auth-switch">Don't have an account? <a href="#" class="switch-link" data-switch="register">Register</a></p>
+  </form>
+  <form class="auth-form" id="registerForm" style="display:none" novalidate>
+    <div class="form-group"><label>Full Name</label><div class="input-icon-wrap"><i class="fa-solid fa-user"></i><input type="text" placeholder="Your full name" required></div></div>
+    <div class="form-group"><label>Email Address</label><div class="input-icon-wrap"><i class="fa-solid fa-envelope"></i><input type="email" placeholder="you@email.com" required></div></div>
+    <div class="form-group"><label>Password</label><div class="input-icon-wrap"><i class="fa-solid fa-lock"></i><input type="password" placeholder="Min. 8 characters" required></div></div>
+    <button type="submit" class="auth-submit">Create Account &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+    <p class="auth-switch">Already have an account? <a href="#" class="switch-link" data-switch="login">Login</a></p>
+  </form>
+</div>
+
+<!-- ══ TOAST ══ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ══ HERO ══ -->
+<div id="hero">
+  <nav id="mainNav">
+    <div class="logo">
+      <img src="assets/images/Malola_Logo_600x300-01-1536x768.webp" alt="NaturNest" class="nav-logo-img">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#kids-about">About</a></li>
+
+      <!-- SHOP MEGA MENU -->
+      <li class="has-mega">
+        <a href="#kids-shop" class="mega-trigger">Shop <i class="fa-solid fa-chevron-down nav-caret"></i></a>
+        <div class="nav-mega">
+          <div class="mega-inner">
+            <div class="mega-header">
+              <span>Our Products</span>
+              <a href="#kids-shop" class="mega-view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="mega-grid">
+              <div class="mega-item" data-pdp="almonds">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Dry Fruit</div>
+                  <div class="mega-item-name">Premium Almonds</div>
+                  <div class="mega-item-price">$299</div>
+                </div>
+                <img src="assets/images/red.png" alt="Almonds" class="mega-item-img">
+              </div>
+              <div class="mega-item" data-pdp="cashews">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Dry Nut</div>
+                  <div class="mega-item-name">Premium Cashews</div>
+                  <div class="mega-item-price">$299</div>
+                </div>
+                <img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Cashews" class="mega-item-img">
+              </div>
+              <div class="mega-item" data-pdp="dates">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Dry Fruit</div>
+                  <div class="mega-item-name">Medjool Dates</div>
+                  <div class="mega-item-price">$299</div>
+                </div>
+                <img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt="Dates" class="mega-item-img">
+              </div>
+              <div class="mega-item" data-pdp="mixed">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Trail Mix</div>
+                  <div class="mega-item-name">Mixed Dry Fruits</div>
+                  <div class="mega-item-price">$299</div>
+                </div>
+                <img src="assets/images/32603c34-e7eb-411c-869c-a99345af8d3d_removalai_preview.png" alt="Mix" class="mega-item-img">
+              </div>
+              <div class="mega-item mega-soon">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Dry Nut</div>
+                  <div class="mega-item-name">Organic Walnuts</div>
+                  <div class="mega-soon-tag">Coming Soon</div>
+                </div>
+                <div class="mega-item-emoji">🌰</div>
+              </div>
+              <div class="mega-item mega-soon">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Dry Nut</div>
+                  <div class="mega-item-name">Roasted Pistachios</div>
+                  <div class="mega-soon-tag">Coming Soon</div>
+                </div>
+                <div class="mega-item-emoji">🫘</div>
+              </div>
+              <div class="mega-item mega-soon">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Dried Fruit</div>
+                  <div class="mega-item-name">Turkish Figs</div>
+                  <div class="mega-soon-tag">Coming Soon</div>
+                </div>
+                <div class="mega-item-emoji">🫐</div>
+              </div>
+              <div class="mega-item mega-soon">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Dried Fruit</div>
+                  <div class="mega-item-name">Golden Raisins</div>
+                  <div class="mega-soon-tag">Coming Soon</div>
+                </div>
+                <div class="mega-item-emoji">🍇</div>
+              </div>
+              <div class="mega-item mega-soon">
+                <div class="mega-item-text">
+                  <div class="mega-item-cat">Premium Nut</div>
+                  <div class="mega-item-name">Pecan Nuts</div>
+                  <div class="mega-soon-tag">Coming Soon</div>
+                </div>
+                <div class="mega-item-emoji">🥜</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- NEW ARRIVALS DROPDOWN -->
+      <li class="has-drop">
+        <a href="#" class="drop-trigger">New Arrivals <i class="fa-solid fa-chevron-down nav-caret"></i></a>
+        <div class="nav-drop">
+          <div class="drop-head">🆕 Coming This Season</div>
+          <div class="drop-items">
+            <div class="drop-item">
+              <div class="drop-item-emoji">🌰</div>
+              <div class="drop-item-body">
+                <div class="drop-item-name">Organic Walnuts</div>
+                <div class="drop-item-sub">Californian · Cold-Pressed</div>
+              </div>
+              <div class="drop-badge">Soon</div>
+            </div>
+            <div class="drop-item">
+              <div class="drop-item-emoji">🫘</div>
+              <div class="drop-item-body">
+                <div class="drop-item-name">Roasted Pistachios</div>
+                <div class="drop-item-sub">Iranian · Lightly Salted</div>
+              </div>
+              <div class="drop-badge">Soon</div>
+            </div>
+            <div class="drop-item">
+              <div class="drop-item-emoji">🎁</div>
+              <div class="drop-item-body">
+                <div class="drop-item-name">Saffron Gift Box</div>
+                <div class="drop-item-sub">Premium · Limited Edition</div>
+              </div>
+              <div class="drop-badge drop-badge-hot">Limited</div>
+            </div>
+          </div>
+          <button class="drop-notify-btn" onclick="showToast('<i class=\'fa-solid fa-bell\'></i> You\'ll be first to know when they land!')">🔔 Notify Me</button>
+        </div>
+      </li>
+
+      <li><a href="#kids-video">Videos</a></li>
+      <li><a href="#kids-contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-cart-btn" id="navCartBtn" aria-label="Open cart">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+      </button>
+      <button class="btn-login" id="navLoginBtn">Login</button>
+      <button class="btn-signup" id="navSignupBtn">Sign Up</button>
+    </div>
+  </nav>
+  <div id="bgWord">COFFEE</div>
+  <canvas id="beansCanvas"></canvas>
+  <div class="side-cup left" id="leftCup">
+    <svg viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c8956a"/><stop offset="100%" stop-color="#8b5c2e"/></linearGradient></defs>
+      <ellipse cx="40" cy="18" rx="28" ry="8" fill="#e8d5b8" opacity=".9"/>
+      <rect x="12" y="18" width="56" height="70" rx="6" fill="url(#lg1)"/>
+      <ellipse cx="40" cy="88" rx="22" ry="6" fill="#7a4f22"/>
+      <rect x="14" y="20" width="52" height="8" rx="3" fill="rgba(255,255,255,.15)"/>
+      <circle cx="40" cy="14" r="10" fill="#f0e4cc"/>
+      <path d="M32 14 Q40 6 48 14" stroke="#d4c4a0" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+  <div class="side-cup right" id="rightCup">
+    <svg viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e8a04a"/><stop offset="100%" stop-color="#b8621a"/></linearGradient></defs>
+      <ellipse cx="40" cy="18" rx="28" ry="8" fill="#f5d8a8" opacity=".9"/>
+      <rect x="12" y="18" width="56" height="70" rx="6" fill="url(#lg2)"/>
+      <ellipse cx="40" cy="88" rx="22" ry="6" fill="#a0521a"/>
+      <rect x="14" y="20" width="52" height="8" rx="3" fill="rgba(255,255,255,.15)"/>
+      <circle cx="40" cy="12" r="12" fill="#fce8cc"/>
+      <line x1="40" y1="0" x2="40" y2="14" stroke="#4e8a2e" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div id="productStage">
+    <div class="product-ring" id="productRing">
+      <img class="product-image" id="productImage" src="assets/images/green.png" alt="Matcha Frap"/>
+      <div class="product-badge" id="productBadge">New</div>
+    </div>
+    <div class="product-label" id="productLabel">Matcha Frap</div>
+  </div>
+  <div id="leftContent">
+    <div class="slide-tag" id="slideTag">Best Seller</div>
+    <h1 class="slide-title" id="slideTitle">Matcha<br/>Frappuccino</h1>
+    <p class="slide-desc" id="slideDesc">A refreshing blend of premium matcha and creamy milk, topped with whipped cream and golden pearls for a truly indulgent experience.</p>
+    <div class="cta-row">
+      <button class="btn-cta" id="heroAddCart">Add to Cart</button>
+      <div class="price" id="slidePrice"><sup>$</sup>299</div>
+    </div>
+  </div>
+  <div id="rightThumbs"></div>
+  <div id="bottomBar">
+    <p class="bottom-desc">Explore a realm of rich aromas with our exclusive coffee selection. At Fresh Brews, we harness the essence of nature's best beans.</p>
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn">&#8592;</button>
+      <div class="dots" id="dotsContainer"></div>
+      <button class="nav-btn" id="nextBtn">&#8594;</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Unique Coffee</div></div>
+      <div class="stat"><div class="stat-num">20K+</div><div class="stat-label">Satisfied Customers</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Arabica Beans</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KIDS PAGE ══ -->
+<div class="kids-page">
+
+  <div class="kids-divider">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#fffde7"/></svg>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="kids-about k-reveal" id="kids-about">
+    <div class="k-deco k-star" style="top:10%;left:5%;width:50px;height:50px;--d:-0.5s"></div>
+    <div class="k-deco k-circle" style="top:20%;right:8%;width:70px;height:70px;--d:-2s"></div>
+    <div class="k-deco k-triangle" style="bottom:15%;left:12%;--d:-3s"></div>
+    <div class="k-deco k-star" style="bottom:20%;right:5%;width:35px;height:35px;--d:-4s"></div>
+    <div class="k-deco k-circle" style="top:60%;left:3%;width:40px;height:40px;background:#1976D2;--d:-1.5s"></div>
+    <div class="kids-about-grid">
+      <div class="kids-about-text">
+        <div class="k-eyebrow">🌱 Rooted in Nature</div>
+        <h2>Pure nutrition shaped by <span>earth, sun</span> &amp; care.</h2>
+        <p>NaturNest begins with slow-selected orchards, ethical sourcing, and a quiet obsession with purity. Every product is built to nourish — vibrant first taste, a wholesome body, and goodness that stays with you.</p>
+        <button class="kids-about-cta" onclick="document.getElementById('kids-shop').scrollIntoView({behavior:'smooth'})">
+          Explore Collection <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="kids-about-visual">
+        <!-- animated zigzag top-right corner -->
+        <svg class="ka-zigzag" viewBox="0 0 200 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polyline class="ka-zz-line" points="0,55 25,5 50,55 75,5 100,55 125,5 150,55 175,5 200,55"/>
+        </svg>
+        <img class="ka-main-img" src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Premium Cashews">
+        <div class="ka-badge2">🌿 100% Natural
+          <div class="stars-row"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="kids-products k-reveal" id="kids-shop">
+    <div class="k-section-head">
+      <div class="k-eyebrow">⭐ Premium Selection</div>
+      <h2>Nature's finest, curated for you!</h2>
+      <p>Every product hand-selected for exceptional quality — from buttery cashews to rich Medjool dates and beyond.</p>
+    </div>
+    <div class="kids-product-grid">
+      <!-- Card 1 -->
+      <div class="k-prod-card">
+        <div class="k-prod-img" style="background:#fff5ee">
+          <img src="assets/images/red.png" alt="Premium Almonds">
+          <div class="k-prod-badge" style="background:#1565C0">Fresh 🔥</div>
+        </div>
+        <div class="k-prod-info">
+          <div class="k-prod-type">Dry Fruit</div>
+          <div class="k-prod-name">Premium Almonds</div>
+          <div class="k-prod-desc">Rich in vitamin E, magnesium and healthy fats. California grade A.</div>
+          <div class="k-prod-footer">
+            <div class="k-prod-price"><sup>$</sup>299</div>
+            <button class="k-add-btn add-to-cart-btn" data-name="Premium Almonds" data-price="299" data-image="assets/images/red.png">+ Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="k-prod-card">
+        <div class="k-prod-img" style="background:#fdf8ee">
+          <img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Premium Cashews">
+          <div class="k-prod-badge" style="background:#0d2b6b">Premium ✨</div>
+        </div>
+        <div class="k-prod-info">
+          <div class="k-prod-type">Dry Nut</div>
+          <div class="k-prod-name">Premium Cashews</div>
+          <div class="k-prod-desc">Buttery W320 grade cashews — naturally rich in copper and zinc.</div>
+          <div class="k-prod-footer">
+            <div class="k-prod-price"><sup>$</sup>299</div>
+            <button class="k-add-btn add-to-cart-btn" data-name="Premium Cashews" data-price="299" data-image="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png">+ Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="k-prod-card">
+        <div class="k-prod-img" style="background:#fdf0e8">
+          <img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt="Medjool Dates">
+          <div class="k-prod-badge" style="background:#1976D2">Organic 🌿</div>
+        </div>
+        <div class="k-prod-info">
+          <div class="k-prod-type">Dry Fruit</div>
+          <div class="k-prod-name">Medjool Dates</div>
+          <div class="k-prod-desc">The king of dates — naturally sweet, fibrous and iron-rich.</div>
+          <div class="k-prod-footer">
+            <div class="k-prod-price"><sup>$</sup>299</div>
+            <button class="k-add-btn add-to-cart-btn" data-name="Medjool Dates" data-price="299" data-image="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png">+ Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="k-prod-card">
+        <div class="k-prod-img" style="background:#e8f0fe">
+          <img src="assets/images/32603c34-e7eb-411c-869c-a99345af8d3d_removalai_preview.png" alt="Mixed Dry Fruits">
+          <div class="k-prod-badge" style="background:#0d47a1">Mix 🎉</div>
+        </div>
+        <div class="k-prod-info">
+          <div class="k-prod-type">Trail Mix</div>
+          <div class="k-prod-name">Mixed Dry Fruits</div>
+          <div class="k-prod-desc">Almonds, cashews, walnuts, raisins &amp; pistachios — curated blend.</div>
+          <div class="k-prod-footer">
+            <div class="k-prod-price"><sup>$</sup>299</div>
+            <button class="k-add-btn add-to-cart-btn" data-name="Mixed Dry Fruits" data-price="299" data-image="assets/images/32603c34-e7eb-411c-869c-a99345af8d3d_removalai_preview.png">+ Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO REELS SLIDER -->
+  <section class="kids-video k-reveal" id="kids-video">
+    <div class="k-section-head" style="position:relative;z-index:2">
+      <div class="k-eyebrow">🎬 Watch &amp; Learn</div>
+      <h2>Real Stories. Real Goodness.</h2>
+      <p>Swipe or use arrows — center reel plays automatically.</p>
+    </div>
+
+    <div class="reels-slider-wrap">
+      <button class="reel-nav reel-prev" id="reelPrev" aria-label="Previous reel">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="reels-viewport" id="reelsViewport">
+        <div class="reels-track" id="reelsTrack">
+
+          <div class="reel-card" data-index="0">
+            <video class="reel-video" src="assets/images/video/From KlickPin CF Bookmark these budget-friendly ways to style your paint project that look high-end but stay practical using simple ideas you can actually pull off - Pin-959829739336580702.mp4" muted playsinline preload="metadata"></video>
+            <div class="reel-top"><button class="reel-mute-btn"><i class="fa-solid fa-volume-xmark"></i></button></div>
+            <div class="reel-pause-icon"><i class="fa-solid fa-pause"></i></div>
+          </div>
+
+          <div class="reel-card" data-index="1">
+            <video class="reel-video" src="assets/images/video/From KlickPin CF Polished Bridesmaid Dress Ideas for Everyday Life - Pin-31877109857418235.mp4" muted playsinline preload="metadata"></video>
+            <div class="reel-top"><button class="reel-mute-btn"><i class="fa-solid fa-volume-xmark"></i></button></div>
+            <div class="reel-pause-icon"><i class="fa-solid fa-pause"></i></div>
+          </div>
+
+          <div class="reel-card" data-index="2">
+            <video class="reel-video" src="assets/images/video/From KlickPin CF Polished Bridesmaid Dress Ideas for Everyday Life - Pin-31877109857418235 - Copy.mp4" muted playsinline preload="metadata"></video>
+            <div class="reel-top"><button class="reel-mute-btn"><i class="fa-solid fa-volume-xmark"></i></button></div>
+            <div class="reel-pause-icon"><i class="fa-solid fa-pause"></i></div>
+          </div>
+
+          <div class="reel-card" data-index="3">
+            <video class="reel-video" src="assets/images/video/From KlickPin CF Unique Packing List Ideas on a Budget - Pin-805651820879508247.mp4" muted playsinline preload="metadata"></video>
+            <div class="reel-top"><button class="reel-mute-btn"><i class="fa-solid fa-volume-xmark"></i></button></div>
+            <div class="reel-pause-icon"><i class="fa-solid fa-pause"></i></div>
+          </div>
+
+          <div class="reel-card" data-index="4">
+            <video class="reel-video" src="assets/images/video/PinLoad_Style_savvy_Video_Themed_outfits_Bold_fashion_1776402561028 - Copy.mp4" muted playsinline preload="metadata"></video>
+            <div class="reel-top"><button class="reel-mute-btn"><i class="fa-solid fa-volume-xmark"></i></button></div>
+            <div class="reel-pause-icon"><i class="fa-solid fa-pause"></i></div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="reel-nav reel-next" id="reelNext" aria-label="Next reel">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="reels-dots" id="reelsDots"></div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="kids-benefits k-reveal" id="kids-benefits">
+    <div class="kids-benefits-grid">
+      <div class="kb-img-side">
+
+        <!-- squiggly line — right side -->
+        <svg class="kb-squig kb-squig-r" viewBox="0 0 70 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path class="kb-squig-path" d="M35,8 C65,30 65,70 35,95 C5,120 5,160 35,185 C65,210 65,240 35,252" fill="none" stroke="#FECF0A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- squiggly line — top left -->
+        <svg class="kb-squig kb-squig-l" viewBox="0 0 60 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path class="kb-squig-path2" d="M30,6 C52,24 52,55 30,72 C8,89 8,120 30,138 C52,156 52,170 30,174" fill="none" stroke="#1565C0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- scattered dashes — bottom left -->
+        <div class="kb-dashes">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+
+        <!-- floating dot accents -->
+        <div class="kb-dot kb-dot1"></div>
+        <div class="kb-dot kb-dot2"></div>
+        <div class="kb-dot kb-dot3"></div>
+
+        <img class="kb-main-img" src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Premium Cashews">
+      </div>
+      <div class="kb-text">
+        <div class="k-eyebrow">💪 Health Benefits</div>
+        <h2>Pure nutrition, <span>extraordinary</span> flavour.</h2>
+        <p>Each product is selected like a fine ingredient — layered nourishment, luminous freshness, and a nutritional profile that moves from light snack to complete meal supplement.</p>
+        <ul class="kb-features">
+          <li><div class="k-check"><i class="fa-solid fa-check"></i></div> 100% Natural — No Preservatives</li>
+          <li><div class="k-check"><i class="fa-solid fa-check"></i></div> Ethically Sourced from Certified Farms</li>
+          <li><div class="k-check"><i class="fa-solid fa-check"></i></div> No Artificial Colours or Additives</li>
+          <li><div class="k-check"><i class="fa-solid fa-check"></i></div> Cold-Pressed &amp; Sun-Dried Processing</li>
+        </ul>
+        <button class="kids-about-cta" style="margin-top:28px" onclick="document.getElementById('kids-shop').scrollIntoView({behavior:'smooth'})">
+          Shop Now <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="kids-stats k-reveal">
+    <div class="k-section-head">
+      <div class="k-eyebrow">📊 Why NaturNest</div>
+      <h2>Numbers rooted in nature.</h2>
+      <p>Every detail measured, every product perfected to the highest natural standard.</p>
+    </div>
+    <div class="k-stat-grid">
+      <div class="k-stat-card">
+        <strong data-count="30">0</strong>
+        <div class="k-stat-label">Natural Products</div>
+        <p>Unique natural products across dry fruits, nuts and trail mixes.</p>
+      </div>
+      <div class="k-stat-card">
+        <strong data-count="50">0</strong>
+        <div class="k-stat-label">Happy Customers (K)</div>
+        <p>Thousands of customers choosing nature's finest every single day.</p>
+      </div>
+      <div class="k-stat-card">
+        <strong data-count="100">0</strong>
+        <div class="k-stat-label">% Pure &amp; Natural</div>
+        <p>Zero preservatives, additives or artificial flavours — guaranteed.</p>
+      </div>
+      <div class="k-stat-card">
+        <strong data-count="12">0</strong>
+        <div class="k-stat-label">Source Countries</div>
+        <p>Countries we source from to bring the world's finest to your table.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="kids-reviews k-reveal">
+    <div class="k-section-head">
+      <div class="k-eyebrow" style="background:var(--yellow);color:var(--kids-dark)">💬 Customer Stories</div>
+      <h2>Reviews as pure as our products!</h2>
+      <p>Real words from real health lovers who taste the difference.</p>
+    </div>
+    <div class="owl-carousel kids-testimonial-carousel" style="max-width:1220px;margin:0 auto;position:relative;z-index:2">
+      <div>
+        <div class="k-review-card">
+          <div class="k-quote">"</div>
+          <p class="k-review-text">The Medjool dates are absolutely divine. Naturally sweet, fresh and so rich. I've gifted them to everyone — nothing like this quality anywhere.</p>
+          <div class="k-review-footer">
+            <div class="k-avatar" style="background:#1565C0">A</div>
+            <div><div class="k-review-name">Aarav M.</div><div class="k-stars">★★★★★</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="k-review-card">
+          <div class="k-quote">"</div>
+          <p class="k-review-text">NaturNest cashews are the creamiest I've ever had. You can taste the freshness immediately. My entire family is hooked!</p>
+          <div class="k-review-footer">
+            <div class="k-avatar" style="background:#1976D2">N</div>
+            <div><div class="k-review-name">Nina S.</div><div class="k-stars">★★★★★</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="k-review-card">
+          <div class="k-quote">"</div>
+          <p class="k-review-text">The mixed dry fruits pack is my daily ritual. Perfect balance of nuts and fruits. A clean luxury snack I genuinely look forward to.</p>
+          <div class="k-review-footer">
+            <div class="k-avatar" style="background:#1565C0">K</div>
+            <div><div class="k-review-name">Kabir R.</div><div class="k-stars">★★★★★</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="k-review-card">
+          <div class="k-quote">"</div>
+          <p class="k-review-text">Premium almonds that actually taste premium. No bitterness, no stale aftertaste. Just pure, wholesome goodness in every handful.</p>
+          <div class="k-review-footer">
+            <div class="k-avatar" style="background:#FECF0A">S</div>
+            <div><div class="k-review-name">Sara L.</div><div class="k-stars">★★★★★</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="k-review-card">
+          <div class="k-quote">"</div>
+          <p class="k-review-text">NaturNest has completely changed how I snack. Pure, honest products that deliver on every claim. Worth every penny!</p>
+          <div class="k-review-footer">
+            <div class="k-avatar" style="background:#1976D2">M</div>
+            <div><div class="k-review-name">Marcus T.</div><div class="k-stars">★★★★★</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="kids-gallery k-reveal">
+    <div class="k-section-head">
+      <div class="k-eyebrow" style="background:var(--yellow);color:var(--kids-dark)">📸 Gallery</div>
+      <h2>Nature's beauty in every product!</h2>
+    </div>
+    <div class="k-gallery-grid" style="max-width:1220px;margin:0 auto">
+      <div class="k-gal-item tall">
+        <img src="assets/images/red.png" alt="Premium Almonds">
+        <div class="k-gal-overlay"><div class="k-gal-label">Premium Almonds</div></div>
+      </div>
+      <div class="k-gal-item">
+        <img src="assets/images/a6bf2fb7-be25-4e5c-94f4-ba9215f70999_removalai_preview.png" alt="Cashews">
+        <div class="k-gal-overlay"><div class="k-gal-label">Premium Cashews</div></div>
+      </div>
+      <div class="k-gal-item">
+        <img src="assets/images/b3e47e53-7399-423b-a88a-c4cadb4de3b3_removalai_preview.png" alt="Medjool Dates">
+        <div class="k-gal-overlay"><div class="k-gal-label">Medjool Dates</div></div>
+      </div>
+      <div class="k-gal-item wide">
+        <img src="assets/images/32603c34-e7eb-411c-869c-a99345af8d3d_removalai_preview.png" alt="Mixed Dry Fruits">
+        <div class="k-gal-overlay"><div class="k-gal-label">Mixed Dry Fruits</div></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /kids-page -->
+
+<!-- FOOTER -->
+<footer class="kids-footer" id="kids-contact">
+  <div class="k-footer-grid">
+    <div>
+      <div class="k-footer-logo">
+        <img src="assets/images/Malola_Logo_600x300-01-1536x768.webp" alt="NaturNest" style="height:56px;width:auto;object-fit:contain;filter:brightness(0) invert(1) drop-shadow(0 2px 8px rgba(254,207,10,.4))">
+      </div>
+      <p>Premium natural &amp; dry fruits sourced from the world's finest orchards, delivered pure to your door.</p>
+      <div class="k-social-links">
+        <a class="k-social-link" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="k-social-link" href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="k-social-link" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="k-social-link" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a class="k-social-link" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="k-eyebrow" style="background:var(--yellow);color:var(--kids-dark);display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 22px;font-family:'Fredoka One',cursive;font-size:.9rem;margin-bottom:10px">📧 Stay Connected</div>
+      <div class="k-footer-heading">Join the harvest list!</div>
+      <form class="k-footer-form" id="footerForm">
+        <input type="text" placeholder="Your Name" aria-label="Name">
+        <input type="email" placeholder="Email Address" aria-label="Email">
+        <button type="submit">Subscribe &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="k-footer-bottom">
+    <span>© 2025 NaturNest. All rights reserved.</span>
+    <div class="k-footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Products</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
